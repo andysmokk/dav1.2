@@ -1,0 +1,17 @@
+.userBox {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 50px 50px 15px;
+}
+
+.inputBox:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .btnSubmit {} */

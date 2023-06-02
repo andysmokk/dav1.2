@@ -1,15 +1,14 @@
 import React from "react";
-// import { SideBar } from "../../components/SideBar/SideBar";
-// import { Products } from "../../components/Products/Products";
 import styles from "./ShopPage.module.css";
+import { SideBar } from "../../components/SideBar/SideBar";
+import { Products } from "../../components/Products/Products";
 
 export const ShopPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.shop}>
-        ShopPage
-        {/* <SideBar />
-        <Products /> */}
+        <SideBar />
+        <Products />
       </div>
     </div>
   );

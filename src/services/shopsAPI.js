@@ -6,7 +6,6 @@ const BASE_URL_POST = "";
 const getShops = async () => {
   try {
     const data = await axios.get(`${BASE_URL_FETCH}/shops`);
-    console.log("🚀 ~ file: shopsAPI.js:10 ~ getShops ~ data:", data);
     return data;
   } catch (error) {
     console.error(error.message);
@@ -16,10 +15,6 @@ const getShops = async () => {
 async function getProducts() {
   try {
     const response = await axios.get(`${BASE_URL_FETCH}/products`);
-    console.log(
-      "🚀 ~ file: shopsAPI.js:20 ~ getProducts ~ response:",
-      response
-    );
     return response;
   } catch (error) {
     console.error(error.message);
