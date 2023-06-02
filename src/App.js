@@ -1,7 +1,25 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ShopContextProvider } from "./components/ShopContextProvider/ShopContextProvider";
+
+import { NavBar } from "./components/NavBar/NavBar";
+import { ShopPage } from "./pages/ShopPage/ShopPage";
+import { CartPage } from "./pages/CartPage/CartPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import "./App.css";
 
 function App() {
-  return <h1> Hola Mundo</h1>;
+  return (
+    <ShopContextProvider>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ShopPage />} />
+          <Route path="/shopping-cart" element={<CartPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+    </ShopContextProvider>
+  );
 }
 
 export default App;

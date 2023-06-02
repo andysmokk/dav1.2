@@ -1,0 +1,19 @@
+.container {
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.link:not(:last-child) {
+    margin-right: 20px;
+}
