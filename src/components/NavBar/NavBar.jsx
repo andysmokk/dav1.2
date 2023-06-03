@@ -14,7 +14,7 @@ export const NavBar = () => {
           <Link className={styles.link} to="/">
             Shop
           </Link>
-          <Link className={styles.link} to="/shop-cart">
+          <Link className={styles.link} to="/shopping-cart">
             Cart
             <ShoppingCart size={25} weight="bold" className={styles.svg} />
             {totalQuantityProductsCart() > 0 && (

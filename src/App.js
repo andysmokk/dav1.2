@@ -1,6 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import { ShopContextProvider } from "./components/ShopContextProvider/ShopContextProvider";
-
 import { NavBar } from "./components/NavBar/NavBar";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
 import { CartPage } from "./pages/CartPage/CartPage";
@@ -15,9 +19,11 @@ function App() {
         <div className="appContainer">
           <NavBar />
           <Routes>
+            <Route path="/" element={<Outlet />}>
+              <Route path="/" element={<ShopPage />} />
+              <Route path="/shopping-cart" element={<CartPage />} />
+            </Route>
             <Route path="*" element={<NotFoundPage />} />
-            <Route path="/" element={<ShopPage />} />
-            <Route path="/shop-cart" element={<CartPage />} />
           </Routes>
           <Footer />
         </div>
