@@ -3,7 +3,8 @@ import { useContextShops } from "../../hooks/useContextShops";
 import styles from "./Cart.module.css";
 
 export const Cart = () => {
-  const { cart, removeProductFromCart } = useContextShops();
+  const { cart, changeQuantityProduct, removeProductFromCart } =
+    useContextShops();
 
   return (
     <div>
@@ -29,8 +30,11 @@ export const Cart = () => {
                     step="1"
                     min="1"
                     max="9999"
-                    value={element.product.quantity}
+                    value={element.quantity}
                     name="quantity"
+                    onChange={(e) =>
+                      changeQuantityProduct(element.product.id, e.target.value)
+                    }
                   />
                 </div>
               </div>

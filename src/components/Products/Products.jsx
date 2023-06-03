@@ -3,11 +3,12 @@ import { useContextShops } from "../../hooks/useContextShops";
 import styles from "./Products.module.css";
 
 export const Products = () => {
-  const { productsOfCurrentShop, addProductToCart } = useContextShops();
-  console.log(
-    "🚀 ~ file: Products.jsx:7 ~ Products ~ productsOfCurrentShop:",
-    productsOfCurrentShop
-  );
+  const { productsOfCurrentShop, addProductToCart, quantityProductsCart } =
+    useContextShops();
+
+  // const currentShopProducts = products.filter(
+  //   (product) => product.idShop === shopId
+  // );
 
   return (
     <ul className={styles.products}>
@@ -22,11 +23,14 @@ export const Products = () => {
               <p>Price: {product.price}$</p>
             </div>
             <button
-              className={styles.buttonProduct}
+              className={styles.button}
               type="button"
               onClick={() => addProductToCart(product.id)}
             >
-              Add To Cart
+              Add To Cart{" "}
+              {quantityProductsCart(product.id) > 0 && (
+                <>({quantityProductsCart(product.id)})</>
+              )}
             </button>
           </li>
         ))

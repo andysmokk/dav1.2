@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL_FETCH = "https://62cd6e7d066bd2b69925bcaf.mockapi.io/api/v1";
-const BASE_URL_POST = "";
+const BASE_URL_POST = "http://localhost:3005";
 
 const getShops = async () => {
   try {
@@ -21,8 +21,15 @@ async function getProducts() {
   }
 }
 
-async function sendOrder() {
+async function sendOrder(data) {
+  console.log(data);
   try {
+    const response = await axios.post(
+      `${BASE_URL_POST}/orders/shopping-cart`,
+      data
+    );
+    console.log(data);
+    return response;
   } catch (error) {
     console.error(error.message);
   }

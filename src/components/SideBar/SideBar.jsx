@@ -3,7 +3,7 @@ import { useContextShops } from "../../hooks/useContextShops";
 import styles from "./SideBar.module.css";
 
 export const SideBar = () => {
-  const { shops, currentShopId } = useContextShops();
+  const { shops, cart, currentShopId, shopId } = useContextShops();
 
   return (
     <div className={styles.shop}>
@@ -11,7 +11,12 @@ export const SideBar = () => {
       <ul className={styles.shops}>
         {shops.map((shop) => (
           <li key={shop.id}>
-            <button onClick={() => currentShopId(shop.id)}>{shop.name}</button>
+            <button
+              onClick={() => currentShopId(shop.id)}
+              disabled={cart.length >= 1 ? shop.id !== shopId : false}
+            >
+              {shop.name}
+            </button>
           </li>
         ))}
       </ul>

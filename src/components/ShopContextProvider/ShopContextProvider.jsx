@@ -4,28 +4,43 @@ import api from "../../services/shopsAPI";
 
 export const ShopContext = createContext({
   shops: [],
-  shopId: "",
+  activeShop: [],
   products: [],
-  productsOfCurrentShop: [],
+  shopId: "",
   cart: [],
+  name: "",
+  email: "",
+  phone: "",
+  address: "",
+  totalPriceProducts: 0,
+  productsOfCurrentShop: [],
   addProductToCart: () => {},
+  changeQuantityProduct: () => {},
   removeProductFromCart: () => {},
+  quantityProductsCart: () => {},
+  totalQuantityProductsCart: () => {},
+  submitHandler: () => {},
+  onFormChange: () => {},
 });
 
 export const ShopContextProvider = ({ children }) => {
   const [shops, setShops] = useState([]);
-  const [shopId, setShopId] = useState("");
   const [products, setProducts] = useState([]);
   const [productsOfCurrentShop, setProductsOfCurrentShop] = useState([]);
-  console.log(
-    "🚀 ~ file: ShopContextProvider.jsx:20 ~ ShopContextProvider ~ productsOfCurrentShop:",
-    productsOfCurrentShop
-  );
+  const [shopId, setShopId] = useState("");
+  const [activeShop, setActiveShop] = useState("");
   const [cart, setCart] = useState([]);
-  console.log(
-    "🚀 ~ file: ShopContextProvider.jsx:30 ~ ShopContextProvider ~ cart:",
-    cart
-  );
+  const [totalPriceProducts, setTotalPriceProducts] = useState(0);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [user, setUser] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+  });
 
   useEffect(() => {
     const fetchShops = async () => {
@@ -51,6 +66,10 @@ export const ShopContextProvider = ({ children }) => {
     );
   }, [products, shopId]);
 
+  useEffect(() => {
+    setUser({ name: name, phone: phone, email: email, address: address });
+  }, [address, email, name, phone]);
+
   const currentShopId = (idShop) => setShopId(idShop);
 
   const addProductToCart = (idProduct) => {
@@ -59,9 +78,6 @@ export const ShopContextProvider = ({ children }) => {
       (product) => product.id === idProduct
     );
 
-    // currentCart = [...cart, currentProduct];
-
-    // setCart(currentCart);
     const indexProductOfCart = cart.findIndex(
       (product) => product.product.id === currentProduct.id
     );
@@ -76,6 +92,19 @@ export const ShopContextProvider = ({ children }) => {
         currentCart[indexProductOfCart].quantity + 1;
       setCart(currentCart);
     }
+
+    setActiveShop(currentProduct.idShop);
+  };
+
+  const changeQuantityProduct = (id, number) => {
+    let currentCart = [...cart];
+    let indexProductOfCart = cart.findIndex(
+      (product) => product.product.id === id
+    );
+
+    currentCart[indexProductOfCart].quantity = Number(number);
+
+    setCart(currentCart);
   };
 
   const removeProductFromCart = (idProduct) => {
@@ -86,17 +115,83 @@ export const ShopContextProvider = ({ children }) => {
     }
   };
 
+  const quantityProductsCart = (id) => {
+    const currentProductCart = cart.find(
+      (product) => product.product.id === id
+    );
+    return currentProductCart ? currentProductCart.quantity : 0;
+  };
+
+  const totalQuantityProductsCart = () => {
+    return cart.reduce((total, product) => total + product.quantity, 0);
+  };
+
+  const calcTotalPriceProduct = cart.reduce((acc, product) => {
+    return (acc += product.product.price * product.quantity);
+  }, 0);
+
+  useEffect(() => {
+    setTotalPriceProducts(calcTotalPriceProduct);
+  }, [calcTotalPriceProduct, cart]);
+
+  const submitHandler = (e, data, total) => {
+    e.preventDefault();
+
+    api.sendOrder({ user: user, order: data, totalPrice: total });
+    setName("");
+    setEmail("");
+    setPhone("");
+    setAddress("");
+    setCart([]);
+  };
+
+  const onFormChange = ({ target }) => {
+    const { name, value } = target;
+
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+
+      case "email":
+        setEmail(value);
+        break;
+
+      case "phone":
+        setPhone(value);
+        break;
+
+      case "address":
+        setAddress(value);
+        break;
+
+      default:
+        return;
+    }
+  };
+
   return (
     <ShopContext.Provider
       value={{
         shops,
+        activeShop,
+        products,
         currentShopId,
         shopId,
-        products,
-        productsOfCurrentShop,
         addProductToCart,
+        productsOfCurrentShop,
+        changeQuantityProduct,
         removeProductFromCart,
+        quantityProductsCart,
         cart,
+        totalPriceProducts,
+        totalQuantityProductsCart,
+        submitHandler,
+        onFormChange,
+        name,
+        email,
+        phone,
+        address,
       }}
     >
       {children}
