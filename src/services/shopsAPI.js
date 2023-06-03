@@ -28,7 +28,6 @@ async function sendOrder(data) {
       `${BASE_URL_POST}/orders/shopping-cart`,
       data
     );
-    console.log(data);
     return response;
   } catch (error) {
     console.error(error.message);
