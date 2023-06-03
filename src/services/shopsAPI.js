@@ -24,7 +24,10 @@ async function getProducts() {
 async function sendOrder(data) {
   console.log(data);
   try {
-    const response = await axios.post(`${BASE_URL_POST}/shopping-cart`, data);
+    const response = await axios.post(
+      `${BASE_URL_POST}/orders/shopping-cart`,
+      data
+    );
     return response;
   } catch (error) {
     console.error(error.message);
