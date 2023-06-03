@@ -53,14 +53,10 @@ export const ShopContextProvider = ({ children }) => {
     fetchShops();
   }, []);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const products = await api.getProducts();
-      setProducts(products.data);
-    };
-
-    fetchProducts();
-  }, []);
+  const fetchProducts = async () => {
+    const products = await api.getProducts();
+    setProducts(products.data);
+  };
 
   useEffect(() => {
     setProductsOfCurrentShop(
@@ -72,7 +68,10 @@ export const ShopContextProvider = ({ children }) => {
     setUser({ name: name, phone: phone, email: email, address: address });
   }, [address, email, name, phone]);
 
-  const currentShopId = (idShop) => setShopId(idShop);
+  const currentShopId = (idShop) => {
+    fetchProducts();
+    setShopId(idShop);
+  };
 
   const addProductToCart = (idProduct) => {
     let currentCart = [];

@@ -8,10 +8,10 @@ React.js, Axios
 ### BackEnd:
 
 Node.js, MongoDB, Express
-[GitHub]()
+[GitHub](https://github.com/andysmokk/dabv1.1)
 
 FETCH - [mockapi.io](https://mockapi.io/)
-POST - ///
+POST - [https://delivery-app-back-q2h7.onrender.com](https://delivery-app-back-q2h7.onrender.com)
 
 ## Available Scripts
 

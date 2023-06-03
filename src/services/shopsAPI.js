@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL_FETCH = "https://62cd6e7d066bd2b69925bcaf.mockapi.io/api/v1";
-const BASE_URL_POST = "http://localhost:3005";
+const BASE_URL_POST = "https://delivery-app-back-q2h7.onrender.com";
 
 const getShops = async () => {
   try {
