@@ -15,9 +15,9 @@ function App() {
         <div className="appContainer">
           <NavBar />
           <Routes>
+            <Route path="*" element={<NotFoundPage />} />
             <Route path="/" element={<ShopPage />} />
             <Route path="/shopping-cart" element={<CartPage />} />
-            <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
         </div>
