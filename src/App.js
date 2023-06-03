@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/" element={<ShopPage />} />
-            <Route path="/shopping-cart" element={<CartPage />} />
+            <Route path="/shop-cart" element={<CartPage />} />
           </Routes>
           <Footer />
         </div>
