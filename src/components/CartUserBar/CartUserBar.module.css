@@ -1,8 +1,21 @@
+.userForm {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-right: 2px solid grey;
+}
+
 .userBox {
-    border: 2px solid black;
+    /* border-right: 2px solid grey; */
     display: flex;
     flex-direction: column;
-    padding: 15px 50px 50px 15px;
+    padding-right: 15px;
+}
+
+.span {
+    font-size: 18px;
+    font-weight: 500;
+    color: grey;
+    margin-bottom: 5px;
 }
 
 .inputBox:not(:last-child) {
@@ -10,8 +23,56 @@
 }
 
 .label {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
 
-/* .btnSubmit {} */
+.input {
+    font-size: 16px;
+    padding: 5px 5px 5px 25px;
+}
+
+.input:hover {
+    border: 2px solid blueviolet;
+    border-radius: 3px;
+}
+
+.svg {
+    position: absolute;
+    top: 34px;
+    left: 5px;
+    color: gray;
+    pointer-events: none;
+}
+
+.input:hover+.svg,
+.input:focus+.svg {
+    color: blueviolet;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.button {
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    background-color: #b8b8b896;
+}
+
+.button:hover,
+.button:focus {
+    color: white;
+    background-color: blueviolet;
+}
+
+.button:disabled {
+    pointer-events: none;
+}

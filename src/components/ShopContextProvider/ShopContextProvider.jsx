@@ -14,6 +14,7 @@ export const ShopContext = createContext({
   address: "",
   totalPriceProducts: 0,
   productsOfCurrentShop: [],
+  orderSent: Boolean,
   addProductToCart: () => {},
   changeQuantityProduct: () => {},
   removeProductFromCart: () => {},
@@ -31,6 +32,7 @@ export const ShopContextProvider = ({ children }) => {
   const [activeShop, setActiveShop] = useState("");
   const [cart, setCart] = useState([]);
   const [totalPriceProducts, setTotalPriceProducts] = useState(0);
+  const [orderSent, setOrderSent] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -94,6 +96,7 @@ export const ShopContextProvider = ({ children }) => {
     }
 
     setActiveShop(currentProduct.idShop);
+    setOrderSent(false);
   };
 
   const changeQuantityProduct = (id, number) => {
@@ -143,6 +146,8 @@ export const ShopContextProvider = ({ children }) => {
     setPhone("");
     setAddress("");
     setCart([]);
+
+    setOrderSent(true);
   };
 
   const onFormChange = ({ target }) => {
@@ -187,6 +192,7 @@ export const ShopContextProvider = ({ children }) => {
         totalPriceProducts,
         totalQuantityProductsCart,
         submitHandler,
+        orderSent,
         onFormChange,
         name,
         email,

@@ -4,19 +4,23 @@ import { ShopContextProvider } from "./components/ShopContextProvider/ShopContex
 import { NavBar } from "./components/NavBar/NavBar";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
 import { CartPage } from "./pages/CartPage/CartPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+import { Footer } from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
   return (
     <ShopContextProvider>
       <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ShopPage />} />
-          <Route path="/shopping-cart" element={<CartPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <div className="appContainer">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ShopPage />} />
+            <Route path="/shopping-cart" element={<CartPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+          <Footer />
+        </div>
       </Router>
     </ShopContextProvider>
   );

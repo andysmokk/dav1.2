@@ -8,19 +8,21 @@ export const NavBar = () => {
   const { totalQuantityProductsCart } = useContextShops();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.links}>
-        <Link className={styles.link} to="/">
-          Shop
-        </Link>
-        <Link className={styles.link} to="/shopping-cart">
-          Cart
-          <ShoppingCart size={20} />
-          {totalQuantityProductsCart() > 0 && (
-            <>({totalQuantityProductsCart()})</>
-          )}
-        </Link>
+    <header>
+      <div className={styles.container}>
+        <nav className={styles.links}>
+          <Link className={styles.link} to="/">
+            Shop
+          </Link>
+          <Link className={styles.link} to="/shopping-cart">
+            Cart
+            <ShoppingCart size={25} weight="bold" className={styles.svg} />
+            {totalQuantityProductsCart() > 0 && (
+              <>({totalQuantityProductsCart()})</>
+            )}
+          </Link>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };

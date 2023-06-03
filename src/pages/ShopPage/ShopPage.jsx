@@ -5,11 +5,13 @@ import { Products } from "../../components/Products/Products";
 
 export const ShopPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.shop}>
-        <SideBar />
-        <Products />
+    <main>
+      <div className={styles.container}>
+        <div className={styles.shop}>
+          <SideBar />
+          <Products />
+        </div>
       </div>
-    </div>
+    </main>
   );
 };

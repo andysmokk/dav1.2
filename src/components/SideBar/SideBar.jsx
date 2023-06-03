@@ -6,12 +6,13 @@ export const SideBar = () => {
   const { shops, cart, currentShopId, shopId } = useContextShops();
 
   return (
-    <div className={styles.shop}>
+    <div className={styles.shops}>
       <h2 className={styles.title}>Shops</h2>
-      <ul className={styles.shops}>
+      <ul>
         {shops.map((shop) => (
-          <li key={shop.id}>
+          <li key={shop.id} className={styles.item}>
             <button
+              className={styles.button}
               onClick={() => currentShopId(shop.id)}
               disabled={cart.length >= 1 ? shop.id !== shopId : false}
             >

@@ -4,10 +4,12 @@ import { CartBar } from "../../components/CartBar/CartBar";
 
 export const CartPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.cart}>
-        <CartBar />
+    <main>
+      <div className={styles.container}>
+        <div className={styles.cart}>
+          <CartBar />
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
