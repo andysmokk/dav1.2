@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Outlet,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ShopContextProvider } from "./components/ShopContextProvider/ShopContextProvider";
 import { NavBar } from "./components/NavBar/NavBar";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
@@ -20,7 +15,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<ShopPage />} />
-            <Route path="/shopping-cart" element={<CartPage />} />
+            <Route path="shopping-cart" element={<CartPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
