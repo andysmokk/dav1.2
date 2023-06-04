@@ -10,12 +10,12 @@ import "./App.css";
 function App() {
   return (
     <ShopContextProvider>
-      <Router>
+      <Router basename="/">
         <div className="appContainer">
           <NavBar />
           <Routes>
             <Route path="/" element={<ShopPage />} />
-            <Route path="shopping-cart" element={<CartPage />} />
+            <Route path="/shopping-cart" element={<CartPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
