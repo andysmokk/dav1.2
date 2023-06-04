@@ -11,15 +11,15 @@ function App() {
   return (
     <ShopContextProvider>
       <Router>
-        {/* <div className="appContainer"> */}
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ShopPage />} />
-          <Route path="/shopping-cart" element={<CartPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        <Footer />
-        {/* </div> */}
+        <div className="appContainer">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ShopPage />} />
+            <Route path="/shopping-cart" element={<CartPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+          <Footer />
+        </div>
       </Router>
     </ShopContextProvider>
   );
