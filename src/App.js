@@ -19,10 +19,8 @@ function App() {
         <div className="appContainer">
           <NavBar />
           <Routes>
-            <Route path="/" element={<Outlet />}>
-              <Route path="/" element={<ShopPage />} />
-              <Route path="/shopping-cart" element={<CartPage />} />
-            </Route>
+            <Route path="/" element={<ShopPage />} />
+            <Route path="/shopping-cart" element={<CartPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
