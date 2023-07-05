@@ -29,7 +29,7 @@ export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productsOfCurrentShop, setProductsOfCurrentShop] = useState([]);
   const [shopId, setShopId] = useState("");
-  const [activeShop, setActiveShop] = useState("");
+  // const [activeShop, setActiveShop] = useState("");
   const [cart, setCart] = useState([]);
   const [totalPriceProducts, setTotalPriceProducts] = useState(0);
   const [orderSent, setOrderSent] = useState(false);
@@ -43,6 +43,26 @@ export const ShopContextProvider = ({ children }) => {
     email: "",
     address: "",
   });
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart);
+      setCart(parsedCart);
+      parsedCart.forEach(({ product }) => {
+        setShopId(product.idShop);
+      });
+      fetchProducts();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cart && cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      localStorage.removeItem("cart");
+    }
+  }, [cart]);
 
   useEffect(() => {
     const fetchShops = async () => {
@@ -94,7 +114,7 @@ export const ShopContextProvider = ({ children }) => {
       setCart(currentCart);
     }
 
-    setActiveShop(currentProduct.idShop);
+    // setActiveShop(currentProduct.idShop);
     setOrderSent(false);
   };
 
@@ -178,7 +198,7 @@ export const ShopContextProvider = ({ children }) => {
     <ShopContext.Provider
       value={{
         shops,
-        activeShop,
+        // activeShop,
         products,
         currentShopId,
         shopId,
