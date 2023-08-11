@@ -4,7 +4,7 @@
     border-right: 2px solid grey;
 }
 
-.userBox {
+.userFormBox {
     display: flex;
     flex-direction: column;
     padding-right: 15px;
@@ -30,6 +30,7 @@
 .input {
     font-size: 16px;
     padding: 5px 5px 5px 25px;
+    width: -webkit-fill-available;
 }
 
 .input:hover {

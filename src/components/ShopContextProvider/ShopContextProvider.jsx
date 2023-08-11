@@ -15,6 +15,7 @@ export const ShopContext = createContext({
   totalPriceProducts: 0,
   productsOfCurrentShop: [],
   orderSent: Boolean,
+  marker: {},
   addProductToCart: () => {},
   changeQuantityProduct: () => {},
   removeProductFromCart: () => {},
@@ -22,6 +23,9 @@ export const ShopContext = createContext({
   totalQuantityProductsCart: () => {},
   submitHandler: () => {},
   onFormChange: () => {},
+  setAddress: () => {},
+  onPlaceChanged: () => {},
+  onMapClick: () => {},
 });
 
 export const ShopContextProvider = ({ children }) => {
@@ -29,7 +33,6 @@ export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productsOfCurrentShop, setProductsOfCurrentShop] = useState([]);
   const [shopId, setShopId] = useState("");
-  // const [activeShop, setActiveShop] = useState("");
   const [cart, setCart] = useState([]);
   const [totalPriceProducts, setTotalPriceProducts] = useState(0);
   const [orderSent, setOrderSent] = useState(false);
@@ -37,6 +40,7 @@ export const ShopContextProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [marker, setMarker] = useState(null);
   const [user, setUser] = useState({
     name: "",
     phone: "",
@@ -114,7 +118,6 @@ export const ShopContextProvider = ({ children }) => {
       setCart(currentCart);
     }
 
-    // setActiveShop(currentProduct.idShop);
     setOrderSent(false);
   };
 
@@ -194,11 +197,43 @@ export const ShopContextProvider = ({ children }) => {
     }
   };
 
+  const onPlaceChanged = (place) => {
+    const geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode({ location: place }, (results, status) => {
+      if (status === "OK" && results[0]) {
+        setMarker(place);
+        setAddress(results[0].formatted_address);
+      } else {
+        console.error("Geocoder failed due to: " + status);
+      }
+    });
+  };
+
+  const onMapClick = (event) => {
+    const newMarker = {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    };
+
+    setMarker(newMarker);
+    onPlaceChanged(newMarker);
+  };
+
+  // useEffect(() => {
+  //   localStorage.setItem("marker", JSON.stringify(marker));
+  // }, [marker]);
+
+  // useEffect(() => {
+  //   const savedMarker = JSON.parse(localStorage.getItem("marker"));
+  //   if (savedMarker) {
+  //     setMarker(savedMarker);
+  //   }
+  // }, []);
+
   return (
     <ShopContext.Provider
       value={{
         shops,
-        // activeShop,
         products,
         currentShopId,
         shopId,
@@ -217,6 +252,10 @@ export const ShopContextProvider = ({ children }) => {
         email,
         phone,
         address,
+        setAddress,
+        onPlaceChanged,
+        marker,
+        onMapClick,
       }}
     >
       {children}
