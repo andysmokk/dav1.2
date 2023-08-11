@@ -6,9 +6,9 @@ import { ShopPage } from "./pages/ShopPage/ShopPage";
 import { CartPage } from "./pages/CartPage/CartPage";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import { Footer } from "./components/Footer/Footer";
-// import { Map } from "./components/Map/Map";
 import "./App.css";
 
+const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 const libraries = ["places"];
 
 function App() {
@@ -16,10 +16,7 @@ function App() {
     <ShopContextProvider>
       <Router>
         <div className="appContainer">
-          <LoadScript
-            googleMapsApiKey="AIzaSyDeQsvHqNUQysEEPBnSgJ_Hrb1Sa98mJlg"
-            libraries={libraries}
-          >
+          <LoadScript googleMapsApiKey={googleApiKey} libraries={libraries}>
             <NavBar />
             <Routes>
               <Route path="/" element={<ShopPage />} />
