@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useContextShops } from "../../hooks/useContextShops";
 import { User, Envelope, Phone, House } from "phosphor-react";
 import { Map } from "../Map/Map";
@@ -17,14 +17,9 @@ export const CartUserBar = () => {
     cart,
     totalPriceProducts,
     onPlaceChanged,
-    // setAddress,
   } = useContextShops();
 
   const searchBox = useRef(null);
-
-  // useEffect(() => {
-  //   setAddress("");
-  // }, [setAddress]);
 
   return (
     <div className={styles.userBox}>
