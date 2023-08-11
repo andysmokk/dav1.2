@@ -17,14 +17,14 @@ export const CartUserBar = () => {
     cart,
     totalPriceProducts,
     onPlaceChanged,
-    setAddress,
+    // setAddress,
   } = useContextShops();
 
   const searchBox = useRef(null);
 
-  useEffect(() => {
-    setAddress("");
-  }, [setAddress]);
+  // useEffect(() => {
+  //   setAddress("");
+  // }, [setAddress]);
 
   return (
     <div className={styles.userBox}>

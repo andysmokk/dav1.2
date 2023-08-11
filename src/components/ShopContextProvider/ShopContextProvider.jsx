@@ -219,17 +219,6 @@ export const ShopContextProvider = ({ children }) => {
     onPlaceChanged(newMarker);
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem("marker", JSON.stringify(marker));
-  // }, [marker]);
-
-  // useEffect(() => {
-  //   const savedMarker = JSON.parse(localStorage.getItem("marker"));
-  //   if (savedMarker) {
-  //     setMarker(savedMarker);
-  //   }
-  // }, []);
-
   return (
     <ShopContext.Provider
       value={{
