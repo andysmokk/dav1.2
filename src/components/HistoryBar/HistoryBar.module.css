@@ -1,13 +1,12 @@
-.userForm {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border-right: 2px solid grey;
+.historyForm {
+    display: flex;
+    justify-content: center;
 }
 
-.userFormBox {
+.historyFormBox {
     display: flex;
     flex-direction: column;
-    padding-right: 15px;
+    width: 30%;
 }
 
 .span {
@@ -50,12 +49,6 @@
 .input:hover+.svg,
 .input:focus+.svg {
     color: blueviolet;
-}
-
-.price {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 20px;
 }
 
 .button {

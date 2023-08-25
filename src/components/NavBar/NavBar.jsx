@@ -14,6 +14,9 @@ export const NavBar = () => {
           <Link className={styles.link} to="/">
             Shop
           </Link>
+          <Link className={styles.link} to="/history">
+            History
+          </Link>
           <Link className={styles.link} to="/shopping-cart">
             Cart
             <ShoppingCart size={25} weight="bold" className={styles.svg} />

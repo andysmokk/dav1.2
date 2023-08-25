@@ -162,7 +162,7 @@ export const ShopContextProvider = ({ children }) => {
   const submitHandler = (e, data, total) => {
     e.preventDefault();
 
-    api.sendOrder({ user: user, order: data, totalPrice: total });
+    api.sendOrder({ user: user, order: { goods: data, totalPrice: total } });
     setName("");
     setEmail("");
     setPhone("");

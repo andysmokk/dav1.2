@@ -4,6 +4,7 @@ import { ShopContextProvider } from "./components/ShopContextProvider/ShopContex
 import { NavBar } from "./components/NavBar/NavBar";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
 import { CartPage } from "./pages/CartPage/CartPage";
+import { HistoryPage } from "./pages/HistoryPage/HistoryPage";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import { Footer } from "./components/Footer/Footer";
 import "./App.css";
@@ -20,6 +21,7 @@ function App() {
             <NavBar />
             <Routes>
               <Route path="/" element={<ShopPage />} />
+              <Route path="/history" element={<HistoryPage />} />
               <Route path="/shopping-cart" element={<CartPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

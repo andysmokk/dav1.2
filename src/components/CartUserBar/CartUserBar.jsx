@@ -39,6 +39,7 @@ export const CartUserBar = () => {
                 name="name"
                 value={name}
                 onChange={onFormChange}
+                placeholder="Example: Robert Jonson"
                 required
               ></input>
               <User size={20} weight="fill" className={styles.svg} />
@@ -53,6 +54,7 @@ export const CartUserBar = () => {
                 name="email"
                 value={email}
                 onChange={onFormChange}
+                placeholder="Example: email@email.com"
                 required
               ></input>
               <Envelope size={21} weight="fill" className={styles.svg} />
@@ -67,6 +69,7 @@ export const CartUserBar = () => {
                 name="phone"
                 value={phone}
                 onChange={onFormChange}
+                placeholder="Example: 34655221515"
                 required
               ></input>
               <Phone size={21} weight="fill" className={styles.svg} />
