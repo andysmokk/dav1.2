@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./CartPage.module.css";
 import { CartBar } from "../../components/CartBar/CartBar";
 

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useContextShops } from "../../hooks/useContextShops";
 import { User, Envelope, Phone, House } from "phosphor-react";
 import { Map } from "../Map/Map";

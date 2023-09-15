@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./HistoryPage.module.css";
 import { HistoryBar } from "../../components/HistoryBar/HistoryBar";
 

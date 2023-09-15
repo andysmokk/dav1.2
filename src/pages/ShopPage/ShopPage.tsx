@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ShopPage.module.css";
 import { SideBar } from "../../components/SideBar/SideBar";
 import { Products } from "../../components/Products/Products";

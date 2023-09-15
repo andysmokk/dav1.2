@@ -1,4 +1,3 @@
-import React from "react";
 import { useContextShops } from "../../hooks/useContextShops";
 import styles from "./Products.module.css";
 

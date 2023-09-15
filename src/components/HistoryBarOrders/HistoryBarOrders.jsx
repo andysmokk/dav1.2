@@ -1,4 +1,3 @@
-import React from "react";
 import { nanoid } from "nanoid";
 import { HistoryBarOrder } from "../HistoryBarOrder/HistoryBarOrder";
 import styles from "./HistoryBarOrders.module.css";

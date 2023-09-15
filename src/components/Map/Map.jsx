@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useContextShops } from "../../hooks/useContextShops";
 

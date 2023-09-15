@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./HistoryBar.module.css";
 import { Envelope, Phone } from "phosphor-react";
 import api from "../../services/shopsAPI";

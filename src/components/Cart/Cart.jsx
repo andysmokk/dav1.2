@@ -1,4 +1,3 @@
-import React from "react";
 import { useContextShops } from "../../hooks/useContextShops";
 import { TrashSimple } from "phosphor-react";
 import styles from "./Cart.module.css";

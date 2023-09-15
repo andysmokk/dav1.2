@@ -1,4 +1,3 @@
-import React from "react";
 import { GithubLogo } from "phosphor-react";
 import styles from "./Footer.module.css";
 
