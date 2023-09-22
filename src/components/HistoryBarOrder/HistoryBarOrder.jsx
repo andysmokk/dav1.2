@@ -6,7 +6,7 @@ export const HistoryBarOrder = ({ goods }) => {
     <div className={styles.box}>
       <ul className={styles.list}>
         {goods &&
-          goods.goods.map((good) => (
+          goods.map((good) => (
             <li key={nanoid(10)} className={styles.item}>
               <img
                 src={good.product.img}

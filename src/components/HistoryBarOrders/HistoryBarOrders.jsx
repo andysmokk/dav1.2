@@ -3,7 +3,7 @@ import { HistoryBarOrder } from "../HistoryBarOrder/HistoryBarOrder";
 import styles from "./HistoryBarOrders.module.css";
 
 export const HistoryBarOrders = ({ orders }) => {
-  const dataOrder = orders.map(({ order }) => order);
+  const dataOrder = orders.map(({ order }) => order.goods);
   const order = dataOrder.map((good) => good);
 
   return (

@@ -70,7 +70,7 @@ export const ShopContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchShops = async () => {
       const shops = await api.getShops();
-      setShops(shops.data);
+      setShops(shops);
     };
 
     fetchShops();
@@ -78,7 +78,7 @@ export const ShopContextProvider = ({ children }) => {
 
   const fetchProducts = async () => {
     const products = await api.getProducts();
-    setProducts(products.data);
+    setProducts(products);
   };
 
   useEffect(() => {
