@@ -6,7 +6,7 @@ export const HistoryBarOrder = ({ goods }) => {
     <div className={styles.box}>
       <ul className={styles.list}>
         {goods &&
-          goods.map((good) => (
+          goods.order.goods.map((good) => (
             <li key={nanoid(10)} className={styles.item}>
               <img
                 src={good.product.img}
@@ -22,7 +22,7 @@ export const HistoryBarOrder = ({ goods }) => {
           ))}
       </ul>
       <h4 className={styles.textTotalPrice}>
-        Total Price: {goods.totalPrice}$
+        Total Price: {goods.order.totalPrice}$
       </h4>
     </div>
   );

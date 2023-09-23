@@ -12,8 +12,8 @@ export const HistoryBar = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await api.getOrders({ email, phone });
-      setOrders(data.data);
+      const data = await api.getOrders({ email, phone });
+      setOrders(data);
     } catch (error) {
       console.error(error.message);
     }

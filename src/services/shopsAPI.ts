@@ -34,7 +34,6 @@ const getProducts = async (): Promise<IGetProducts[]> => {
 };
 
 const sendOrder = async (data: ISendOrderForm): Promise<AxiosResponse> => {
-  console.log("🚀 ~ file: shopsAPI.ts:37 ~ sendOrder ~ data:", data);
   try {
     const response = await axios.post(
       `${BASE_URL_POST}/orders/shopping-cart`,
@@ -48,10 +47,9 @@ const sendOrder = async (data: ISendOrderForm): Promise<AxiosResponse> => {
 };
 
 const getOrders = async (data: IHistoryForm): Promise<AxiosResponse> => {
-  console.log("🚀 ~ file: shopsAPI.ts:51 ~ getOrders ~ data:", data);
   try {
     const response = await axios.post(`${BASE_URL_POST}/orders/history`, data);
-    return response;
+    return response.data.data;
   } catch (error) {
     // getErrorMessage(error);
     throw error;
