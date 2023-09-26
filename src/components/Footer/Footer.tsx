@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { GithubLogo } from "phosphor-react";
 import styles from "./Footer.module.css";
 
-export const Footer = () => {
+export const Footer: FC = () => {
   return (
     <footer>
       <div className={styles.container}>
